@@ -39,7 +39,7 @@ streamlit.write(feature_cols)
 # Split the data
 X = df.drop(columns='Diabetes_binary')
 y = df.Diabetes_binary
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 ## Classifier
 # clf = DecisionTreeClassifier()
@@ -64,6 +64,7 @@ physActVal = streamlit.number_input(label="Physical Activity?", min_value=0, max
 new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
 result = clf.predict(new_data)
 
+# Function to Check Health Status
 def checkCholStatus(cholVal):
     if(cholVal>=10 and cholVal<=200):
         cholStatus = 0
@@ -71,8 +72,22 @@ def checkCholStatus(cholVal):
         cholStatus = 1
     return streamlit.write("Cholesterol status: ", cholStatus)
 
-# Check Attribute Status
+def checkBMIStatus(bmiVal):
+    if(bmiVal>=10 and bmiVal<18.5):
+        bmiStatus = "Underweight"
+    elif(bmiVal>=18.5 and bmiVal<=24.9):
+        bmiStatus = "Normal"
+    elif(bmiVal>=25 and bmiVal<=29.9):
+        bmiStatus = "Overweight"
+    elif(bmiVal>=30 and bmiVal<=34.9):
+        bmiStatus = "Obese"
+    elif(bmiVal>=35 and bmiVal<=100):
+        bmiStatus = "Extremely Obese"
+    return streamlit.write("BMI status: ", bmiStatus)
+
+# Check Health Status
 checkCholStatus(cholVal)
+checkBMIStatus(bmiVal)
 
 # Show result
 streamlit.write(bpVal, cholVal, bmiVal, smokerVal, physActVal)
