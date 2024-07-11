@@ -79,7 +79,7 @@ pipeline = Pipeline(steps=[('preprocessor', preprocessor),
                            ('classifier', LogisticRegression())])
 
 # Train the model
-pipeline = pipeline.fit(X_train, y_train)
+pipeline.fit(X_train, y_train)
 
 # Predictions
 y_pred = pipeline.predict(X_test)
@@ -89,7 +89,7 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 
 # Test the model
-predict_result = pipeline.predict([[0,0,53,0,0]])
+predict_result = pipeline.predict([0,0,53,0,0])
 streamlit.write(predict_result)
 
 ###
