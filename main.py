@@ -79,7 +79,7 @@ pipeline = Pipeline(steps=[('preprocessor', preprocessor),
                            ('classifier', LogisticRegression())])
 
 # Train the model
-pipeline.fit(X_train, y_train)
+pipeline = pipeline.fit(X_train, y_train)
 
 # Predictions
 y_pred = pipeline.predict(X_test)
