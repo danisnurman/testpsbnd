@@ -89,8 +89,8 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 
 # Test the model
-predict_result = pipeline.predict([['0','0','53','0','0']])
-streamlit.write(predict_result)
+# predict_result = pipeline.predict([['0','0','53','0','0']])
+streamlit.write(X_test)
 
 ###
 bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
