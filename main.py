@@ -90,8 +90,8 @@ checkCholStatus(cholVal)
 checkBMIStatus(bmiVal)
 
 # Show result
-streamlit.write(bpVal, cholVal, bmiVal, smokerVal, physActVal)
-streamlit.write(new_data)
+# streamlit.write(bpVal, cholVal, bmiVal, smokerVal, physActVal)
+# streamlit.write(new_data)
 
 # Check Diabetes Risk
 if(result==0):
