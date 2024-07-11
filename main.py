@@ -67,9 +67,9 @@ result = clf.predict(new_data)
 # Function to Check Health Status
 def checkCholStatus(cholVal):
     if(cholVal>=10 and cholVal<=200):
-        cholStatus = 0
+        cholStatus = "Normal"
     elif(cholVal>200):
-        cholStatus = 1
+        cholStatus = "High"
     return streamlit.write("Cholesterol status: ", cholStatus)
 
 def checkBMIStatus(bmiVal):
