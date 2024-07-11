@@ -5,6 +5,16 @@ import numpy
 # from mitosheet.streamlit.v1 import spreadsheet
 # import matplotlib.pyplot as plt
 
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+# from sklearn import metrics
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report
+
 ###
 # streamlit.set_page_config(layout="wide")
 streamlit.title('Diabetes Health Indicators')
@@ -25,27 +35,62 @@ df.isnull().sum()
 feature_cols = ['Diabetes_binary', 'HighBP', 'HighChol', 'BMI', 'Smoker', 'PhysActivity']
 df = df[feature_cols]
 streamlit.write(feature_cols)
+
+# Split the data
 X = df.drop(columns='Diabetes_binary')
 y = df.Diabetes_binary
-
-from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-from sklearn.tree import DecisionTreeClassifier
-from sklearn import metrics
+## Classifier
+# clf = DecisionTreeClassifier()
+# clf = clf.fit(X_train, y_train)
+# y_pred = clf.predict(X_test)
+# streamlit.write("Accuracy: ", metrics.accuracy_score(y_test, y_pred))
+## Classifier entropy criterion
+# clf = DecisionTreeClassifier(criterion="entropy", splitter="best")
+# clf = clf.fit(X_train, y_train)
+# y_pred = clf.predict(X_test)
+# streamlit.write("Accuracy: ", metrics.accuracy_score(y_test, y_pred))
 
-clf = DecisionTreeClassifier()
-clf = clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
-streamlit.write("Accuracy: ", metrics.accuracy_score(y_test, y_pred))
+# Identify numerical and categorical columns
+numeric_features = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
+categorical_features = X.select_dtypes(exclude=['int64', 'float64']).columns.tolist()
 
-clf = DecisionTreeClassifier(criterion="entropy", splitter="best")
-clf = clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
-streamlit.write("Accuracy: ", metrics.accuracy_score(y_test, y_pred))
+# Create transformers for both numerical and categorical data
+numeric_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='mean')),
+    ('scaler', StandardScaler())
+])
 
-predict_result = clf.predict([[0,0,53,0,0]])
-streamlit.write(predict_result)
+categorical_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))
+])
+
+# Combine transformers into a preprocessor step
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', numeric_transformer, numeric_features),
+        ('cat', categorical_transformer, categorical_features)
+    ])
+
+# Combine preprocessor and model into one pipeline
+pipeline = Pipeline(steps=[('preprocessor', preprocessor),
+                           ('classifier', LogisticRegression())])
+
+# Train the model
+pipeline.fit(X_train, y_train)
+
+# Predictions
+y_pred = pipeline.predict(X_test)
+
+# Evaluate the model
+streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
+streamlit.write(classification_report(y_test, y_pred))
+
+# Test the model
+# predict_result = clf.predict([[0,0,53,0,0]])
+# streamlit.write(predict_result)
 
 ###
 bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
