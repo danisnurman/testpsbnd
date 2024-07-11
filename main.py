@@ -53,7 +53,7 @@ y_pred = clf.predict(X_test)
 
 # Evaluate the model
 streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
-streamlit.write(classification_report(y_test, y_pred))
+# streamlit.write(classification_report(y_test, y_pred))
 
 # Test the model
 bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
