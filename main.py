@@ -24,10 +24,10 @@ streamlit.title('Diabetes Health Indicators')
 # streamlit.code(code)
 ###
 
-# Judul
+## Title
 streamlit.write("Hi! Please fill the form below.")
 
-###
+## Read CSV & Define Feature
 df = pandas.read_csv('https://raw.githubusercontent.com/danisnurman/psbnd2/main/diabetes_binary_5050split_health_indicators_BRFSS2015.csv')
 # streamlit.dataframe(df, use_container_width=True)
 df.dropna(inplace=True)
@@ -36,26 +36,26 @@ feature_cols = ['Diabetes_binary', 'HighBP', 'HighChol', 'BMI', 'Smoker', 'PhysA
 df = df[feature_cols]
 streamlit.write(feature_cols)
 
-# Split the data
+## Split the data
 X = df.drop(columns='Diabetes_binary')
 y = df.Diabetes_binary
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Classifier
+## Classifier
 clf = DecisionTreeClassifier()
 clf = clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 
-# # Classifier entropy criterion
+# Classifier entropy criterion
 # clf = DecisionTreeClassifier(criterion="entropy", splitter="best")
 # clf = clf.fit(X_train, y_train)
 # y_pred = clf.predict(X_test)
 
-# Evaluate the model
+## Evaluate the model
 streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 
-# Test the model
+## Test the model
 bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
 cholVal = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500)
 bmiVal = streamlit.number_input(label="Body Mass Index", min_value=10, max_value=100)
@@ -64,7 +64,8 @@ physActVal = streamlit.number_input(label="Physical Activity?", min_value=0, max
 new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
 result = clf.predict(new_data)
 
-# Function to Check Health Status
+## Function to Check Health Status
+# Chol Status
 def checkCholStatus(cholVal):
     if(cholVal>=10 and cholVal<=200):
         cholStatus = "Normal"
@@ -72,6 +73,7 @@ def checkCholStatus(cholVal):
         cholStatus = "High"
     return streamlit.write("Cholesterol status: ", cholStatus)
 
+# BMI Status
 def checkBMIStatus(bmiVal):
     if(bmiVal>=10 and bmiVal<18.5):
         bmiStatus = "Underweight"
@@ -84,18 +86,19 @@ def checkBMIStatus(bmiVal):
     elif(bmiVal>=35 and bmiVal<=100):
         bmiStatus = "Extremely Obese"
     return streamlit.write("BMI status: ", bmiStatus)
+## End of Function
 
 # Check Health Status
 checkCholStatus(cholVal)
 checkBMIStatus(bmiVal)
 
-# Show result
+## Show result
 # streamlit.write(bpVal, cholVal, bmiVal, smokerVal, physActVal)
 # streamlit.write(new_data)
 
-# Check Diabetes Risk
+## Check Diabetes Risk
 if(result==0):
     streamlit.write("Diabetes status: Not Risk")
 else:
-    streamlit.write("Diabetes status: Risk!")
+    streamlit.write("Diabetes status: RISK!")
 ###
