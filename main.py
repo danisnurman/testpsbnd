@@ -73,6 +73,8 @@ def checkBMIStatus1(bmiFormulas):
         bmiStatus = "Obese"
     elif(bmiFormulas>=35 and bmiFormulas<=100):
         bmiStatus = "Extremely Obese"
+    else:
+        bmiStatus = "None"
     return streamlit.write("BMI status: ", bmiStatus)
 
 # streamlit.write(bmiFormulas)
