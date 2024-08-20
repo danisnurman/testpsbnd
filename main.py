@@ -56,35 +56,35 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 
 ## BMI Formulas
-weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f")
-height = streamlit.number_input(label="Body Height (in cm)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f")
+weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f", value="")
+height = streamlit.number_input(label="Body Height (in cm)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f", value="")
 height = height / 100
 bmiFormulas = weight / (height*height)
 bmiFormulas = round(bmiFormulas, 2)
 
-# # BMI Status
-# def checkBMIStatus1(bmiFormulas):
-#     if(bmiFormulas>=10 and bmiFormulas<18.5):
-#         bmiStatus = "Underweight"
-#     elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
-#         bmiStatus = "Normal"
-#     elif(bmiFormulas>=25 and bmiFormulas<=29.9):
-#         bmiStatus = "Overweight"
-#     elif(bmiFormulas>=30 and bmiFormulas<=34.9):
-#         bmiStatus = "Obese"
-#     elif(bmiFormulas>=35 and bmiFormulas<=100):
-#         bmiStatus = "Extremely Obese"
-#     return streamlit.write("BMI status: ", bmiStatus)
+# BMI Status
+def checkBMIStatus1(bmiFormulas):
+    if(bmiFormulas>=10.0 and bmiFormulas<18.5):
+        bmiStatus = "Underweight"
+    elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
+        bmiStatus = "Normal"
+    elif(bmiFormulas>=25.0 and bmiFormulas<=29.9):
+        bmiStatus = "Overweight"
+    elif(bmiFormulas>=30.0 and bmiFormulas<=34.9):
+        bmiStatus = "Obese"
+    elif(bmiFormulas>=35 and bmiFormulas<=100):
+        bmiStatus = "Extremely Obese"
+    return streamlit.write("BMI status: ", bmiStatus)
 
-streamlit.write(bmiFormulas)
-# checkBMIStatus1(bmiFormulas)
+# streamlit.write(bmiFormulas)
+checkBMIStatus1(bmiFormulas)
 
 ## Test the model
-bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
-cholVal = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500)
-bmiVal = streamlit.number_input(label="Body Mass Index", min_value=10, max_value=100)
-smokerVal = streamlit.number_input(label="Smoker?", min_value=0, max_value=1)
-physActVal = streamlit.number_input(label="Physical Activity?", min_value=0, max_value=1)
+bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1, value="")
+cholVal = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500, value="")
+bmiVal = streamlit.number_input(label="Body Mass Index", min_value=10, max_value=100, value="")
+smokerVal = streamlit.number_input(label="Smoker?", min_value=0, max_value=1, value="")
+physActVal = streamlit.number_input(label="Physical Activity?", min_value=0, max_value=1, value="")
 new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
 result = clf.predict(new_data)
 
