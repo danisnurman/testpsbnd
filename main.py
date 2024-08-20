@@ -56,8 +56,8 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 
 ## BMI Formulas
-weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f", value="")
-height = streamlit.number_input(label="Body Height (in cm)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f", value="")
+weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f", value=None)
+height = streamlit.number_input(label="Body Height (in cm)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f", value=None)
 height = height / 100
 bmiFormulas = weight / (height*height)
 bmiFormulas = round(bmiFormulas, 2)
@@ -80,11 +80,11 @@ def checkBMIStatus1(bmiFormulas):
 checkBMIStatus1(bmiFormulas)
 
 ## Test the model
-bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1, value="")
-cholVal = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500, value="")
-bmiVal = streamlit.number_input(label="Body Mass Index", min_value=10, max_value=100, value="")
-smokerVal = streamlit.number_input(label="Smoker?", min_value=0, max_value=1, value="")
-physActVal = streamlit.number_input(label="Physical Activity?", min_value=0, max_value=1, value="")
+bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1, value=None)
+cholVal = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500, value=None)
+bmiVal = streamlit.number_input(label="Body Mass Index", min_value=10, max_value=100, value=None)
+smokerVal = streamlit.number_input(label="Smoker?", min_value=0, max_value=1, value=None)
+physActVal = streamlit.number_input(label="Physical Activity?", min_value=0, max_value=1, value=None)
 new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
 result = clf.predict(new_data)
 
