@@ -61,22 +61,22 @@ height = streamlit.number_input(label="Body Height", min_value=10.0, max_value=2
 bmiFormulas = weight / (height*height)
 bmiFormulas = round(bmiFormulas, 2)
 
-# BMI Status
-def checkBMIStatus1(bmiFormulas):
-    if(bmiFormulas>=10 and bmiFormulas<18.5):
-        bmiStatus = "Underweight"
-    elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
-        bmiStatus = "Normal"
-    elif(bmiFormulas>=25 and bmiFormulas<=29.9):
-        bmiStatus = "Overweight"
-    elif(bmiFormulas>=30 and bmiFormulas<=34.9):
-        bmiStatus = "Obese"
-    elif(bmiFormulas>=35 and bmiFormulas<=100):
-        bmiStatus = "Extremely Obese"
-    return streamlit.write("BMI status: ", bmiStatus)
+# # BMI Status
+# def checkBMIStatus1(bmiFormulas):
+#     if(bmiFormulas>=10 and bmiFormulas<18.5):
+#         bmiStatus = "Underweight"
+#     elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
+#         bmiStatus = "Normal"
+#     elif(bmiFormulas>=25 and bmiFormulas<=29.9):
+#         bmiStatus = "Overweight"
+#     elif(bmiFormulas>=30 and bmiFormulas<=34.9):
+#         bmiStatus = "Obese"
+#     elif(bmiFormulas>=35 and bmiFormulas<=100):
+#         bmiStatus = "Extremely Obese"
+#     return streamlit.write("BMI status: ", bmiStatus)
 
 streamlit.write(bmiFormulas)
-checkBMIStatus1(bmiFormulas)
+# checkBMIStatus1(bmiFormulas)
 
 ## Test the model
 bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
