@@ -59,7 +59,23 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 weight = streamlit.number_input(label="Body Weight", min_value=10, max_value=250, step=1.,format="%.2f")
 height = streamlit.number_input(label="Body Height", min_value=10, max_value=250, step=1.,format="%.2f")
 bmiFormulas = round((weight / (height*height)),1)
+
+# BMI Status
+def checkBMIStatus1(bmiFormulas):
+    if(bmiFormulas>=10 and bmiFormulas<18.5):
+        bmiFormulas = "Underweight"
+    elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
+        bmiStatus = "Normal"
+    elif(bmiFormulas>=25 and bmiFormulas<=29.9):
+        bmiStatus = "Overweight"
+    elif(bmiFormulas>=30 and bmiFormulas<=34.9):
+        bmiStatus = "Obese"
+    elif(bmiFormulas>=35 and bmiFormulas<=100):
+        bmiStatus = "Extremely Obese"
+    return streamlit.write("BMI status: ", bmiStatus)
+
 streamlit.write(bmiFormulas)
+checkBMIStatus1(bmiFormulas)
 
 ## Test the model
 bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
@@ -80,23 +96,23 @@ def checkCholStatus(cholVal):
     return streamlit.write("Cholesterol status: ", cholStatus)
 
 # BMI Status
-def checkBMIStatus(bmiFormulas):
-    if(bmiFormulas>=10 and bmiFormulas<18.5):
-        bmiFormulas = "Underweight"
-    elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
+def checkBMIStatus2(bmiVal):
+    if(bmiVal>=10 and bmiVal<18.5):
+        bmiStatus = "Underweight"
+    elif(bmiVal>=18.5 and bmiVal<=24.9):
         bmiStatus = "Normal"
-    elif(bmiFormulas>=25 and bmiFormulas<=29.9):
+    elif(bmiVal>=25 and bmiVal<=29.9):
         bmiStatus = "Overweight"
-    elif(bmiFormulas>=30 and bmiFormulas<=34.9):
+    elif(bmiVal>=30 and bmiVal<=34.9):
         bmiStatus = "Obese"
-    elif(bmiFormulas>=35 and bmiFormulas<=100):
+    elif(bmiVal>=35 and bmiVal<=100):
         bmiStatus = "Extremely Obese"
     return streamlit.write("BMI status: ", bmiStatus)
 ## End of Function
 
 # Check Health Status
 checkCholStatus(cholVal)
-checkBMIStatus(bmiFormulas)
+checkBMIStatus2(bmiVal)
 
 ## Show result
 # streamlit.write(bpVal, cholVal, bmiVal, smokerVal, physActVal)
