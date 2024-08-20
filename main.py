@@ -55,6 +55,12 @@ y_pred = clf.predict(X_test)
 streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 
+## BMI Formulas
+weight = 42.9
+height = 1.65
+bmiForm = weight / (height*height)
+streamlit.write(bmiForm)
+
 ## Test the model
 bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
 cholVal = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500)
