@@ -58,7 +58,8 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 ## BMI Formulas
 weight = streamlit.number_input(label="Body Weight", min_value=10.0, max_value=250.0, step=1.0, format="%.1f")
 height = streamlit.number_input(label="Body Height", min_value=10.0, max_value=250.0, step=1.0, format="%.1f")
-bmiFormulas = round((weight / (height*height)),1)
+bmiFormulas = weight / (height*height)
+bmiFormulas = round(bmiFormulas, 1)
 
 # BMI Status
 def checkBMIStatus1(bmiFormulas):
@@ -86,33 +87,33 @@ physActVal = streamlit.number_input(label="Physical Activity?", min_value=0, max
 new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
 result = clf.predict(new_data)
 
-## Function to Check Health Status
-# Chol Status
-def checkCholStatus(cholVal):
-    if(cholVal>=10 and cholVal<=200):
-        cholStatus = "Normal"
-    elif(cholVal>200):
-        cholStatus = "High"
-    return streamlit.write("Cholesterol status: ", cholStatus)
+# ## Function to Check Health Status
+# # Chol Status
+# def checkCholStatus(cholVal):
+#     if(cholVal>=10 and cholVal<=200):
+#         cholStatus = "Normal"
+#     elif(cholVal>200):
+#         cholStatus = "High"
+#     return streamlit.write("Cholesterol status: ", cholStatus)
 
-# BMI Status
-def checkBMIStatus2(bmiVal):
-    if(bmiVal>=10 and bmiVal<18.5):
-        bmiStatus = "Underweight"
-    elif(bmiVal>=18.5 and bmiVal<=24.9):
-        bmiStatus = "Normal"
-    elif(bmiVal>=25 and bmiVal<=29.9):
-        bmiStatus = "Overweight"
-    elif(bmiVal>=30 and bmiVal<=34.9):
-        bmiStatus = "Obese"
-    elif(bmiVal>=35 and bmiVal<=100):
-        bmiStatus = "Extremely Obese"
-    return streamlit.write("BMI status: ", bmiStatus)
-## End of Function
+# # BMI Status
+# def checkBMIStatus2(bmiVal):
+#     if(bmiVal>=10 and bmiVal<18.5):
+#         bmiStatus = "Underweight"
+#     elif(bmiVal>=18.5 and bmiVal<=24.9):
+#         bmiStatus = "Normal"
+#     elif(bmiVal>=25 and bmiVal<=29.9):
+#         bmiStatus = "Overweight"
+#     elif(bmiVal>=30 and bmiVal<=34.9):
+#         bmiStatus = "Obese"
+#     elif(bmiVal>=35 and bmiVal<=100):
+#         bmiStatus = "Extremely Obese"
+#     return streamlit.write("BMI status: ", bmiStatus)
+# ## End of Function
 
-# Check Health Status
-checkCholStatus(cholVal)
-checkBMIStatus2(bmiVal)
+# # Check Health Status
+# checkCholStatus(cholVal)
+# checkBMIStatus2(bmiVal)
 
 ## Show result
 # streamlit.write(bpVal, cholVal, bmiVal, smokerVal, physActVal)
