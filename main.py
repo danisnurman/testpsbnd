@@ -64,7 +64,7 @@ bmiFormulas = round(bmiFormulas, 2)
 # BMI Status
 def checkBMIStatus1(bmiFormulas):
     if(bmiFormulas>=10 and bmiFormulas<18.5):
-        bmiFormulas = "Underweight"
+        bmiStatus = "Underweight"
     elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
         bmiStatus = "Normal"
     elif(bmiFormulas>=25 and bmiFormulas<=29.9):
