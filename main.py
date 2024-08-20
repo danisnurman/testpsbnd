@@ -56,8 +56,8 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 
 ## BMI Formulas
-weight = streamlit.number_input(label="Body Weight", min_value=10, max_value=250, step=1.,format="%.2f")
-height = streamlit.number_input(label="Body Height", min_value=10, max_value=250, step=1.,format="%.2f")
+weight = streamlit.number_input(label="Body Weight", min_value=10, max_value=250, step=1.,format="%.1f")
+height = streamlit.number_input(label="Body Height", min_value=10, max_value=250, step=1.,format="%.1f")
 bmiFormulas = round((weight / (height*height)),1)
 
 # BMI Status
