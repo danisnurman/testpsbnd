@@ -58,7 +58,7 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 ## BMI Formulas
 weight = 42.9
 height = 1.65
-bmiForm = weight / (height*height)
+bmiForm = round((weight / (height*height)),0)
 streamlit.write(bmiForm)
 
 ## Test the model
