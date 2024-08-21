@@ -56,10 +56,10 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 
 ## BMI Formulas
-weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f")
-height = streamlit.number_input(label="Body Height (in cm)", min_value=10.0, max_value=250.0, step=.01, format="%0.2f")
+weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=250.0, step=.1, format="%0.1f")
+height = streamlit.number_input(label="Body Height (in cm)", min_value=10.0, max_value=250.0, step=.1, format="%0.1f")
 bmiFormulas = weight / ((height/100)*(height/100))
-bmiFormulas = round(bmiFormulas, 2)
+bmiFormulas = round(bmiFormulas, 1)
 
 # BMI Status
 def checkBMIStatus1(bmiFormulas):
@@ -77,7 +77,7 @@ def checkBMIStatus1(bmiFormulas):
         bmiStatus = "None"
     return streamlit.write("BMI status: ", bmiStatus)
 
-# streamlit.write(bmiFormulas)
+streamlit.write(bmiFormulas)
 checkBMIStatus1(bmiFormulas)
 
 ## Test the model
