@@ -54,14 +54,15 @@ y_pred = clf.predict(X_test)
 ## Evaluate the model
 streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
+##
 
-## BMI Formulas
+## BMI Status
 weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=250.0, step=.1, format="%0.1f")
 height = streamlit.number_input(label="Body Height (in cm)", min_value=10.0, max_value=250.0, step=.1, format="%0.1f")
 bmiFormulas = weight / ((height/100)*(height/100))
 bmiFormulas = round(bmiFormulas, 1)
 
-# BMI Status
+# BMI Status Function
 def checkBMIStatus1(bmiFormulas):
     if(bmiFormulas>=10.0 and bmiFormulas<18.5):
         bmiStatus = "Underweight"
@@ -74,11 +75,51 @@ def checkBMIStatus1(bmiFormulas):
     elif(bmiFormulas>=35 and bmiFormulas<=100):
         bmiStatus = "Extremely Obese"
     else:
-        bmiStatus = "None"
+        bmiStatus = ""
     return streamlit.write("BMI status: ", bmiStatus)
 
-streamlit.write(bmiFormulas)
+# streamlit.write(bmiFormulas)
 checkBMIStatus1(bmiFormulas)
+## End of BMI Formulas
+
+## Age Categorization
+age = streamlit.number_input(label="Age", min_value=18, max_value=120, step=1)
+
+# Age Categorization Function
+def checkAgeCategory(age):
+    if(age>=18 and age<=24):
+        ageStatus = "1"
+    elif(age>=25 and age<=29):
+        ageStatus = "2"
+    elif(age>=30 and age<=34):
+        ageStatus = "3"
+    elif(age>=35 and age<=39):
+        ageStatus = "4"
+    elif(age>=40 and age<=44):
+        ageStatus = "5"
+    elif(age>=45 and age<=49):
+        ageStatus = "6"
+    elif(age>=50 and age<=54):
+        ageStatus = "7"
+    elif(age>=55 and age<=59):
+        ageStatus = "8"
+    elif(age>=60 and age<=64):
+        ageStatus = "9"
+    elif(age>=65 and age<=69):
+        ageStatus = "10"
+    elif(age>=70 and age<=74):
+        ageStatus = "11"
+    elif(age>=75 and age<=79):
+        ageStatus = "12"
+    elif(age>=80 and age<=120):
+        ageStatus = "13"
+    else:
+        ageStatus = ""
+    return streamlit.write("Age Category: ", ageStatus)
+
+# streamlit.write(age)
+checkAgeCategory(age)
+## End of Age Categorization
 
 ## Test the model
 bpVal = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
