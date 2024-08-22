@@ -64,6 +64,8 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 bloodPressure = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
 ##
 
+streamlit.write("==================")
+
 ## High Chol
 cholesterol = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500)
 
@@ -79,10 +81,11 @@ def checkCholStatus(cholesterol):
 #
 
 cholStatus, cholCat = checkCholStatus(cholesterol)
-streamlit.write("Cholesterol total: ", cholesterol)
 streamlit.write("Cholesterol status: ", cholStatus)
 streamlit.write("Cholesterol category: ", cholCat)
 ## End of High Chol
+
+streamlit.write("==================")
 
 ## BMI
 # User Input
