@@ -66,6 +66,19 @@ bmiFormulas = round(bmiFormulas, 1)
 
 # BMI Status Function
 def checkBMIStatus1(bmiFormulas):
+    # if(bmiFormulas>=10.0 and bmiFormulas<18.5):
+    #     bmiStatus = "Underweight"
+    # elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
+    #     bmiStatus = "Normal"
+    # elif(bmiFormulas>=25.0 and bmiFormulas<=29.9):
+    #     bmiStatus = "Overweight"
+    # elif(bmiFormulas>=30.0 and bmiFormulas<=34.9):
+    #     bmiStatus = "Obese"
+    # elif(bmiFormulas>=35 and bmiFormulas<=100):
+    #     bmiStatus = "Extremely Obese"
+    # else:
+    #     bmiStatus = ""
+    # return streamlit.write("BMI status: ", bmiStatus)
     if(bmiFormulas>=10.0 and bmiFormulas<18.5):
         bmiStatus = "Underweight"
     elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
@@ -80,7 +93,8 @@ def checkBMIStatus1(bmiFormulas):
         bmiStatus = ""
     return streamlit.write("BMI status: ", bmiStatus)
 
-# streamlit.write(bmiFormulas)
+streamlit.write(bmiFormulas)
+type(bmiFormulas)
 checkBMIStatus1(bmiFormulas)
 ## End of BMI Formulas
 
@@ -204,6 +218,8 @@ checkAgeCategory(age)
 # ## Show result
 # # streamlit.write(bpVal, cholVal, bmiVal, smokerVal, physActVal)
 # # streamlit.write(new_data)
+
+# -----------------------------------------
 
 # ## Check Diabetes Risk
 # if(result==0):
