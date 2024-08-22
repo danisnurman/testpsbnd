@@ -205,9 +205,9 @@ checkAgeCategory(age)
 # # streamlit.write(bpVal, cholVal, bmiVal, smokerVal, physActVal)
 # # streamlit.write(new_data)
 
-## Check Diabetes Risk
-if(result==0):
-    streamlit.write("Diabetes status: Not Risk")
-else:
-    streamlit.write("Diabetes status: RISK!")
-###
+# ## Check Diabetes Risk
+# if(result==0):
+#     streamlit.write("Diabetes status: Not Risk")
+# else:
+#     streamlit.write("Diabetes status: RISK!")
+# ###
