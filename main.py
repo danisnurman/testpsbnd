@@ -58,6 +58,11 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 # streamlit.write(classification_report(y_test, y_pred))
 ##
 
+### GET VARIABLE INPUT FROM USER
+
+## High Blood Pressure Function
+
+
 ## BMI Function
 # User Input
 weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=200.0, step=.1, format="%0.1f")
@@ -94,6 +99,8 @@ streamlit.write("Body Mass Index (BMI): ", bmiFormulas)
 streamlit.write("BMI status: ", bmiStatus)
 streamlit.write("BMI category: ", bmiCat)
 ## End of BMI Function
+
+streamlit.write("==================")
 
 ## Age Categorization
 age = streamlit.number_input(label="Age", min_value=18, max_value=120, step=1)
@@ -148,6 +155,10 @@ def checkAgeCategory(age):
 ageStatus, ageCat = checkAgeCategory(age)
 streamlit.write("Age Category: ", ageCat)
 ## End of Age Categorization
+
+streamlit.write("==================")
+
+### End of GET VARIABLE INPUT FROM USER
 
 # ## Predict New Data
 # new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
