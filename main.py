@@ -94,8 +94,10 @@ def checkBMIStatus1(bmiFormulas):
     return streamlit.write("BMI status: ", bmiStatus)
 
 streamlit.write("Body Mass Index (BMI): ", bmiFormulas)
-checkvar = 13
-streamlit.write(type(checkvar))
+integer1 = 13
+string1 = "test"
+streamlit.write(type(integer1))
+streamlit.write(type(string1))
 streamlit.write(type(bmiFormulas))
 checkBMIStatus1(bmiFormulas)
 ## End of BMI Formulas
