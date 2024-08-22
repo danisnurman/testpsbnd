@@ -139,7 +139,6 @@ def checkAgeCategory(age):
 ageStatus, ageCat = checkAgeCategory(age)
 streamlit.write(ageCat)
 streamlit.write(ageStatus)
-checkAgeCategory(age)
 ## End of Age Categorization
 
 # ## Predict New Data
