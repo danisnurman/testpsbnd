@@ -70,21 +70,29 @@ bmiFormulas = round(bmiFormulas, 1)
 def checkBMIStatus(bmiFormulas):
     if(bmiFormulas>=10.0 and bmiFormulas<18.5):
         bmiStatus = "Underweight"
+        bmiCat = 1
     elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
         bmiStatus = "Normal"
+        bmiCat = 2
     elif(bmiFormulas>=25.0 and bmiFormulas<=29.9):
         bmiStatus = "Overweight"
+        bmiCat = 3
     elif(bmiFormulas>=30.0 and bmiFormulas<=34.9):
         bmiStatus = "Obese"
+        bmiCat = 4
     elif(bmiFormulas>=35.0 and bmiFormulas<=100.0):
         bmiStatus = "Extremely Obese"
+        bmiCat = 5
     else:
         bmiStatus = ""
-    return streamlit.write("BMI status: ", bmiStatus)
+        bmiCat = 0
+    return bmiStatus, bmiCat
 #
 
+bmiStatus, bmiCat = checkBMIStatus(bmiFormulas)
 streamlit.write("Body Mass Index (BMI): ", bmiFormulas)
-checkBMIStatus(bmiFormulas)
+streamlit.write("BMI status: ", bmiStatus)
+streamlit.write("BMI category: ", bmiCat)
 ## End of BMI Function
 
 ## Age Categorization
@@ -93,54 +101,52 @@ age = streamlit.number_input(label="Age", min_value=18, max_value=120, step=1)
 # Age Categorization Function
 def checkAgeCategory(age):
     if(age>=18 and age<=24):
-        ageStatus = "1,"
+        ageStatus = "1"
         ageCat = 1
     elif(age>=25 and age<=29):
-        ageStatus = "2,"
+        ageStatus = "2"
         ageCat = 2
     elif(age>=30 and age<=34):
-        ageStatus = "3,"
+        ageStatus = "3"
         ageCat = 3
     elif(age>=35 and age<=39):
-        ageStatus = "4,"
+        ageStatus = "4"
         ageCat = 4
     elif(age>=40 and age<=44):
-        ageStatus = "5,"
+        ageStatus = "5"
         ageCat = 5
     elif(age>=45 and age<=49):
-        ageStatus = "6,"
+        ageStatus = "6"
         ageCat = 6
     elif(age>=50 and age<=54):
-        ageStatus = "7,"
+        ageStatus = "7"
         ageCat = 7
     elif(age>=55 and age<=59):
-        ageStatus = "8,"
+        ageStatus = "8"
         ageCat = 8
     elif(age>=60 and age<=64):
-        ageStatus = "9,"
+        ageStatus = "9"
         ageCat = 9
     elif(age>=65 and age<=69):
-        ageStatus = "10,"
+        ageStatus = "10"
         ageCat = 10
     elif(age>=70 and age<=74):
-        ageStatus = "11,"
+        ageStatus = "11"
         ageCat = 11
     elif(age>=75 and age<=79):
-        ageStatus = "12,"
+        ageStatus = "12"
         ageCat = 12
     elif(age>=80 and age<=120):
-        ageStatus = "13,"
+        ageStatus = "13"
         ageCat = 13
     else:
-        ageStatus = ","
+        ageStatus = ""
         ageCat = 0
     return ageStatus, ageCat
+#
 
 ageStatus, ageCat = checkAgeCategory(age)
-streamlit.write(ageCat)
-streamlit.write(ageStatus)
-ageX = ageCat*ageCat
-streamlit.write(ageX)
+streamlit.write("Age Category: ", ageCat)
 ## End of Age Categorization
 
 # ## Predict New Data
