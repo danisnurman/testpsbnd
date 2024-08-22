@@ -60,32 +60,53 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 
 ### GET VARIABLE INPUT FROM USER
 
-## High Blood Pressure Function
+## High Blood Pressure
+bloodPressure = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
+##
 
+## High Chol
+cholesterol = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500)
 
-## BMI Function
+# Chol Status Function
+def checkCholStatus(cholesterol):
+    if(cholesterol>=10.0 and cholesterol<=200):
+        cholStatus = "Normal"
+        cholCat = 0
+    else:
+        cholStatus = "High"
+        cholCat = 1
+    return cholStatus, cholCat
+#
+
+cholStatus, cholCat = checkCholStatus(cholesterol)
+streamlit.write("Cholesterol total: ", cholesterol)
+streamlit.write("Cholesterol status: ", cholStatus)
+streamlit.write("Cholesterol category: ", cholCat)
+## End of High Chol
+
+## BMI
 # User Input
 weight = streamlit.number_input(label="Body Weight (in kg)", min_value=10.0, max_value=200.0, step=.1, format="%0.1f")
 height = streamlit.number_input(label="Body Height (in cm)", min_value=10.0, max_value=200.0, step=.1, format="%0.1f")
-bmiFormulas = weight / ((height/100)*(height/100))
-bmiFormulas = round(bmiFormulas, 1)
+bmi = weight / ((height/100)*(height/100))
+bmi = round(bmi, 1)
 #
 
 # BMI Status Function
-def checkBMIStatus(bmiFormulas):
-    if(bmiFormulas>=10.0 and bmiFormulas<18.5):
+def checkBMIStatus(bmi):
+    if(bmi>=10.0 and bmi<18.5):
         bmiStatus = "Underweight"
         bmiCat = 1
-    elif(bmiFormulas>=18.5 and bmiFormulas<=24.9):
+    elif(bmi>=18.5 and bmi<=24.9):
         bmiStatus = "Normal"
         bmiCat = 2
-    elif(bmiFormulas>=25.0 and bmiFormulas<=29.9):
+    elif(bmi>=25.0 and bmi<=29.9):
         bmiStatus = "Overweight"
         bmiCat = 3
-    elif(bmiFormulas>=30.0 and bmiFormulas<=34.9):
+    elif(bmi>=30.0 and bmi<=34.9):
         bmiStatus = "Obese"
         bmiCat = 4
-    elif(bmiFormulas>=35.0 and bmiFormulas<=100.0):
+    elif(bmi>=35.0 and bmi<=100.0):
         bmiStatus = "Extremely Obese"
         bmiCat = 5
     else:
@@ -94,11 +115,16 @@ def checkBMIStatus(bmiFormulas):
     return bmiStatus, bmiCat
 #
 
-bmiStatus, bmiCat = checkBMIStatus(bmiFormulas)
-streamlit.write("Body Mass Index (BMI): ", bmiFormulas)
+bmiStatus, bmiCat = checkBMIStatus(bmi)
+# Dont show BMI if above 100
+if(bmi<100):
+    streamlit.write("Body Mass Index (BMI): ", bmi)
+else:
+    streamlit.write("Body Mass Index (BMI):")
+#
 streamlit.write("BMI status: ", bmiStatus)
 streamlit.write("BMI category: ", bmiCat)
-## End of BMI Function
+## End of BMI
 
 streamlit.write("==================")
 
