@@ -61,13 +61,13 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 ### GET VARIABLE INPUT FROM USER
 
 ## High Blood Pressure
-bloodPressure = streamlit.number_input(label="High BP?", min_value=0, max_value=1)
-##
+bloodPressure = streamlit.number_input(label="1. High BP?", min_value=0, max_value=1)
+## End of High Blood Pressure
 
 streamlit.write("==================")
 
 ## High Chol
-cholesterol = streamlit.number_input(label="Cholesterol Total", min_value=10, max_value=500)
+cholesterol = streamlit.number_input(label="2. Cholesterol Total", min_value=10, max_value=500)
 
 # Chol Status Function
 def checkCholStatus(cholesterol):
@@ -84,6 +84,12 @@ cholStatus, cholCat = checkCholStatus(cholesterol)
 streamlit.write("Cholesterol status: ", cholStatus)
 streamlit.write("Cholesterol category: ", cholCat)
 ## End of High Chol
+
+streamlit.write("==================")
+
+## Cholesterol Check
+cholCheck = streamlit.number_input(label="3. Cholesterol Check?", min_value=0, max_value=1)
+## End of Cholesterol Check
 
 streamlit.write("==================")
 
@@ -121,9 +127,9 @@ def checkBMIStatus(bmi):
 bmiStatus, bmiCat = checkBMIStatus(bmi)
 # Dont show BMI if above 100
 if(bmi<100):
-    streamlit.write("Body Mass Index (BMI): ", bmi)
+    streamlit.write("4. Body Mass Index (BMI): ", bmi)
 else:
-    streamlit.write("Body Mass Index (BMI):")
+    streamlit.write("4. Body Mass Index (BMI):")
 #
 streamlit.write("BMI status: ", bmiStatus)
 streamlit.write("BMI category: ", bmiCat)
@@ -131,8 +137,56 @@ streamlit.write("BMI category: ", bmiCat)
 
 streamlit.write("==================")
 
+## Smoker
+smoker = streamlit.number_input(label="5. Smoke?", min_value=0, max_value=1)
+## End of Smoker
+
+streamlit.write("==================")
+
+## Stroke
+stroke = streamlit.number_input(label="6. Stroke?", min_value=0, max_value=1)
+## End of Stroke
+
+streamlit.write("==================")
+
+## Heart Disease
+heartDisease = streamlit.number_input(label="7. Heart Disease?", min_value=0, max_value=1)
+## End of Heart Disease
+
+streamlit.write("==================")
+
+## Physical Activity
+physicalActivity = streamlit.number_input(label="8. Physical Activity?", min_value=0, max_value=1)
+## End of Physical Activity
+
+streamlit.write("==================")
+
+## Fruits
+fruits = streamlit.number_input(label="9. Fruits?", min_value=0, max_value=1)
+## End of Fruits
+
+streamlit.write("==================")
+
+## Veggies
+veggies = streamlit.number_input(label="10. Veggies?", min_value=0, max_value=1)
+## End of Veggies
+
+streamlit.write("==================")
+
+## Heavy Alcohol Consumption
+heavyAlcohol = streamlit.number_input(label="11. Heavy Alcohol Consumption?", min_value=0, max_value=1)
+## End of Heavy Alcohol Consumption
+
+streamlit.write("==================")
+
+## Any Health Care
+heavyAlcohol = streamlit.number_input(label="12. Any Health Care?", min_value=0, max_value=1)
+## End of Any Health Care
+
+streamlit.write("==================")
+
 ## Age Categorization
-age = streamlit.number_input(label="Age", min_value=18, max_value=120, step=1)
+age = streamlit.number_input(label="19. Age", min_value=18, max_value=120, step=1)
 
 # Age Categorization Function
 def checkAgeCategory(age):
