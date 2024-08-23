@@ -62,7 +62,7 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 
 ## High Blood Pressure
 streamlit.write("1. High BP?")
-bloodPressure = streamlit.number_input(min_value=0, max_value=1)
+bloodPressure = streamlit.number_input(label="", min_value=0, max_value=1)
 ## End of High Blood Pressure
 
 streamlit.write("==================")
