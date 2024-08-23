@@ -62,18 +62,18 @@ streamlit.write("Accuracy: ", accuracy_score(y_test, y_pred))
 
 ## High Blood Pressure
 streamlit.write("1. High BP?")
-bloodPressure = streamlit.number_input(label="", min_value=0, max_value=1)
+bloodPressure = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of High Blood Pressure
 
 streamlit.write("==================")
 
 ## High Chol
 streamlit.write("2. Cholesterol Total")
-cholesterol = streamlit.number_input(min_value=10, max_value=500)
+cholesterol = streamlit.number_input(label="Please enter (scale 50-500)", min_value=50, max_value=500)
 
 # Chol Status Function
 def checkCholStatus(cholesterol):
-    if(cholesterol>=10.0 and cholesterol<=200):
+    if(cholesterol>=50.0 and cholesterol<=200):
         cholStatus = "Normal"
         cholCat = 0
     else:
@@ -91,7 +91,7 @@ streamlit.write("==================")
 
 ## Cholesterol Check
 streamlit.write("3. Cholesterol Check?")
-cholCheck = streamlit.number_input(min_value=0, max_value=1)
+cholCheck = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Cholesterol Check
 
 streamlit.write("==================")
@@ -142,63 +142,63 @@ streamlit.write("==================")
 
 ## Smoker
 streamlit.write("5. Smoke?")
-smoker = streamlit.number_input(min_value=0, max_value=1)
+smoker = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Smoker
 
 streamlit.write("==================")
 
 ## Stroke
 streamlit.write("6. Stroke?")
-stroke = streamlit.number_input(min_value=0, max_value=1)
+stroke = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Stroke
 
 streamlit.write("==================")
 
 ## Heart Disease
 streamlit.write("7. Heart Disease?")
-heartDisease = streamlit.number_input(min_value=0, max_value=1)
+heartDisease = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Heart Disease
 
 streamlit.write("==================")
 
 ## Physical Activity
 streamlit.write("8. Physical Activity?")
-physicalActivity = streamlit.number_input(min_value=0, max_value=1)
+physicalActivity = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Physical Activity
 
 streamlit.write("==================")
 
 ## Fruits
 streamlit.write("9. Fruits?")
-fruits = streamlit.number_input(min_value=0, max_value=1)
+fruits = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Fruits
 
 streamlit.write("==================")
 
 ## Veggies
 streamlit.write("10. Veggies?")
-veggies = streamlit.number_input(min_value=0, max_value=1)
+veggies = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Veggies
 
 streamlit.write("==================")
 
 ## Heavy Alcohol Consumption
 streamlit.write("11. Heavy Alcohol Consumption?")
-heavyAlcohol = streamlit.number_input(min_value=0, max_value=1)
+heavyAlcohol = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Heavy Alcohol Consumption
 
 streamlit.write("==================")
 
 ## Any Health Care
 streamlit.write("12. Any Health Care?")
-heavyAlcohol = streamlit.number_input(min_value=0, max_value=1)
+heavyAlcohol = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1)
 ## End of Any Health Care
 
 streamlit.write("==================")
 
 ## Age Categorization
 streamlit.write("19. Age")
-age = streamlit.number_input(min_value=18, max_value=120, step=1)
+age = streamlit.number_input(label="Please enter (scale 18-120)", min_value=18, max_value=120, step=1)
 
 # Age Categorization Function
 def checkAgeCategory(age):
