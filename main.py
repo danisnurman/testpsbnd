@@ -297,14 +297,14 @@ streamlit.write("==================")
 
 ## Education
 streamlit.write("20. Education")
-education = streamlit.number_input(label="Education level (EDUCA see codebook) scale 1-6 1 = Never attended school or only kindergarten 2 = elementary etc.", min_value=0, max_value=1, key=20)
+education = streamlit.number_input(label="Education level (EDUCA see codebook) scale 1-6 1 = Never attended school or only kindergarten 2 = elementary etc.", min_value=1, max_value=6, key=20)
 ## End of Education
 
 streamlit.write("==================")
 
 ## Income
 streamlit.write("21. Income")
-income = streamlit.number_input(label="Income scale (INCOME2 see codebook) scale 1-8 1 = less than $10,000 5 = less than $35,000 8 = $75,000 or more", min_value=0, max_value=1, key=21)
+income = streamlit.number_input(label="Income scale (INCOME2 see codebook) scale 1-8, 1 = less than 10,000, 5 = less than 35,000, 8 = $75,000 or more", min_value=1, max_value=8, key=21)
 ## End of Income
 
 streamlit.write("==================")
