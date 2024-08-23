@@ -90,7 +90,7 @@ streamlit.write("Cholesterol category: ", cholCat)
 streamlit.write("==================")
 
 ## Cholesterol Check
-streamlit.write("3. Cholesterol Check?")
+streamlit.write("3. Cholesterol Check in 5 years?")
 cholCheck = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=3)
 ## End of Cholesterol Check
 
@@ -142,57 +142,99 @@ streamlit.write("==================")
 
 ## Smoker
 streamlit.write("5. Smoke?")
-smoker = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=5)
+smoker = streamlit.number_input(label="Have you smoked at least 100 cigarettes in your entire life? [Note: 5 packs = 100 cigarettes] (0=no, 1=yes)", min_value=0, max_value=1, key=5)
 ## End of Smoker
 
 streamlit.write("==================")
 
 ## Stroke
 streamlit.write("6. Stroke?")
-stroke = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=6)
+stroke = streamlit.number_input(label="(Ever told) you had a stroke. (0=no, 1=yes)", min_value=0, max_value=1, key=6)
 ## End of Stroke
 
 streamlit.write("==================")
 
 ## Heart Disease
 streamlit.write("7. Heart Disease?")
-heartDisease = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=7)
+heartDisease = streamlit.number_input(label="Coronary heart disease (CHD) or myocardial infarction (MI) (0=no, 1=yes)", min_value=0, max_value=1, key=7)
 ## End of Heart Disease
 
 streamlit.write("==================")
 
 ## Physical Activity
 streamlit.write("8. Physical Activity?")
-physicalActivity = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=8)
+physicalActivity = streamlit.number_input(label="Physical activity in past 30 days - not including job (0=no, 1=yes)", min_value=0, max_value=1, key=8)
 ## End of Physical Activity
 
 streamlit.write("==================")
 
 ## Fruits
 streamlit.write("9. Fruits?")
-fruits = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=9)
+fruits = streamlit.number_input(label="Consume Fruit 1 or more times per day (0=no, 1=yes)", min_value=0, max_value=1, key=9)
 ## End of Fruits
 
 streamlit.write("==================")
 
 ## Veggies
 streamlit.write("10. Veggies?")
-veggies = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=10)
+veggies = streamlit.number_input(label="Consume Vegetables 1 or more times per day (0=no, 1=yes)", min_value=0, max_value=1, key=10)
 ## End of Veggies
 
 streamlit.write("==================")
 
 ## Heavy Alcohol Consumption
-streamlit.write("11. Heavy Alcohol Consumption?")
-heavyAlcohol = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=11)
+streamlit.write("11. Heavy Alcohol Consumption")
+heavyAlcohol = streamlit.number_input(label="(adult men >=14 drinks per week and adult women>=7 drinks per week) (0=no, 1=yes)", min_value=0, max_value=1, key=11)
 ## End of Heavy Alcohol Consumption
 
 streamlit.write("==================")
 
 ## Any Health Care
-streamlit.write("12. Any Health Care?")
-heavyAlcohol = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=12)
+streamlit.write("12. Any Health Care")
+heavyAlcohol = streamlit.number_input(label="Have any kind of health care coverage, including health insurance (0=no, 1=yes)", min_value=0, max_value=1, key=12)
 ## End of Any Health Care
+
+streamlit.write("==================")
+
+## No Doctor Because of Cost in the Past 12 Months
+streamlit.write("13. No Doctor because of cost in the past 12 months")
+noDocBcsCost = streamlit.number_input(label="Please enter (0=no, 1=yes)", min_value=0, max_value=1, key=13)
+## No Doctor Because of Cost in the Past 12 Months
+
+streamlit.write("==================")
+
+## General Health Scale
+streamlit.write("14. General Health Scale")
+generalHealth = streamlit.number_input(label="Would you say that in general your health is (scale: 1 = excellent, 2 = very good, 3 = good, 4 = fair, 5 = poor)", min_value=1, max_value=5, key=14)
+## General Health Scale
+
+streamlit.write("==================")
+
+## Mental Health Scale
+streamlit.write("15. Mental Health Scale")
+mentalHealth = streamlit.number_input(label="Days of poor mental health (scale 1-30 days)", min_value=1, max_value=30, key=15)
+## Mental Health Scale
+
+streamlit.write("==================")
+
+## Physical Health Scale
+streamlit.write("16. Physical Health Scale")
+physicalHealth = streamlit.number_input(label="Physical illness or injury days in past 30 days? (scale 1-30)", min_value=1, max_value=30, key=16)
+## Physical Health Scale
+
+streamlit.write("==================")
+
+## Difficulty Walk
+streamlit.write("17. Difficulty Walk")
+heavyAlcohol = streamlit.number_input(label="Do you have serious difficulty walking or climbing stairs? (0=no, 1=yes)", min_value=0, max_value=1, key=17)
+## End of Difficulty Walk
+
+streamlit.write("==================")
+
+## Sex
+streamlit.write("18. Sex")
+sex = streamlit.number_input(label="0=female, 1=male", min_value=0, max_value=1, key=18)
+## End of Sex
 
 streamlit.write("==================")
 
@@ -250,6 +292,20 @@ def checkAgeCategory(age):
 ageStatus, ageCat = checkAgeCategory(age)
 streamlit.write("Age Category: ", ageCat)
 ## End of Age Categorization
+
+streamlit.write("==================")
+
+## Education
+streamlit.write("20. Education")
+education = streamlit.number_input(label="Education level (EDUCA see codebook) scale 1-6 1 = Never attended school or only kindergarten 2 = elementary etc.", min_value=0, max_value=1, key=20)
+## End of Education
+
+streamlit.write("==================")
+
+## Income
+streamlit.write("21. Income")
+income = streamlit.number_input(label="Income scale (INCOME2 see codebook) scale 1-8 1 = less than $10,000 5 = less than $35,000 8 = $75,000 or more", min_value=0, max_value=1, key=21)
+## End of Income
 
 streamlit.write("==================")
 
