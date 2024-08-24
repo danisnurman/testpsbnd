@@ -312,7 +312,7 @@ streamlit.write("==================")
 ### End of GET VARIABLE INPUT FROM USER
 
 ## Print POST Variable
-dataFromUser = [[bloodPressure, cholCat, cholCheck, bmiStatus, smoker,
+dataFromUser = [[bloodPressure, cholStatus, cholCheck, bmiStatus, smoker,
                  stroke, heartDisease, physicalActivity, fruits, veggies,
                  heavyAlcohol, anyHealthCare, noDocBcsCost, generalHealth, mentalHealth,
                  physicalHealth, difficultyWalk, sex, ageCat, education, income]]
