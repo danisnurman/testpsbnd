@@ -319,9 +319,9 @@ dataFromUser = [[bloodPressure, cholStatus, cholCheck, bmiStatus, smoker,
 
 streamlit.write(dataFromUser)
 
-# ## Predict New Data
+## Predict New Data
 # new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
-# result = clf.predict(new_data)
+result = clf.predict(dataFromUser)
 
 # -------------------------------------------
 
@@ -403,9 +403,9 @@ streamlit.write(dataFromUser)
 
 # -----------------------------------------
 
-# ## Check Diabetes Risk
-# if(result==0):
-#     streamlit.write("Diabetes status: Not Risk")
-# else:
-#     streamlit.write("Diabetes status: RISK!")
-# ###
+## Check Diabetes Risk
+if(result==0):
+    streamlit.write("Diabetes status: Not Risk")
+else:
+    streamlit.write("Diabetes status: RISK!")
+###
