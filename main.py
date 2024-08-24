@@ -317,6 +317,8 @@ dataFromUser = [[bloodPressure, cholCat, cholCheck, bmiStatus, smoker,
                  heavyAlcohol, anyHealthCare, noDocBcsCost, generalHealth, mentalHealth,
                  physicalHealth, difficultyWalk, sex, ageCat, education, income]]
 
+streamlit.write(dataFromUser)
+
 # ## Predict New Data
 # new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
 # result = clf.predict(new_data)
