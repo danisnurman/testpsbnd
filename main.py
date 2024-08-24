@@ -191,7 +191,7 @@ streamlit.write("==================")
 
 ## Any Health Care
 streamlit.write("12. Any Health Care")
-heavyAlcohol = streamlit.number_input(label="Have any kind of health care coverage, including health insurance (0=no, 1=yes)", min_value=0, max_value=1, key=12)
+anyHealthCare = streamlit.number_input(label="Have any kind of health care coverage, including health insurance (0=no, 1=yes)", min_value=0, max_value=1, key=12)
 ## End of Any Health Care
 
 streamlit.write("==================")
@@ -226,7 +226,7 @@ streamlit.write("==================")
 
 ## Difficulty Walk
 streamlit.write("17. Difficulty Walk")
-heavyAlcohol = streamlit.number_input(label="Do you have serious difficulty walking or climbing stairs? (0=no, 1=yes)", min_value=0, max_value=1, key=17)
+difficultyWalk = streamlit.number_input(label="Do you have serious difficulty walking or climbing stairs? (0=no, 1=yes)", min_value=0, max_value=1, key=17)
 ## End of Difficulty Walk
 
 streamlit.write("==================")
@@ -310,6 +310,12 @@ income = streamlit.number_input(label="Income scale (INCOME2 see codebook) scale
 streamlit.write("==================")
 
 ### End of GET VARIABLE INPUT FROM USER
+
+## Print POST Variable
+dataFromUser = [[bloodPressure, cholCat, cholCheck, bmiStatus, smoker,
+                 stroke, heartDisease, physicalActivity, fruits, veggies,
+                 heavyAlcohol, anyHealthCare, noDocBcsCost, generalHealth, mentalHealth,
+                 physicalHealth, difficultyWalk, sex, ageCat, education, income]]
 
 # ## Predict New Data
 # new_data = [[bpVal, cholVal, bmiVal, smokerVal, physActVal]]
