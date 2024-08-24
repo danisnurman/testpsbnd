@@ -46,7 +46,7 @@ X = df.drop(columns='Diabetes_binary')
 y = df.Diabetes_binary
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-streamlit.write(X)
+streamlit.write(X_test)
 
 ## Classifier
 clf = DecisionTreeClassifier()
@@ -217,14 +217,14 @@ streamlit.write("==================")
 
 ## Mental Health Scale
 streamlit.write("15. Mental Health Scale")
-mentalHealth = streamlit.number_input(label="Days of poor mental health (scale 1-30 days)", min_value=1, max_value=30, key=15)
+mentalHealth = streamlit.number_input(label="Days of poor mental health (0=no, if yes scale 1-30 days)", min_value=0, max_value=30, key=15)
 ## Mental Health Scale
 
 streamlit.write("==================")
 
 ## Physical Health Scale
 streamlit.write("16. Physical Health Scale")
-physicalHealth = streamlit.number_input(label="Physical illness or injury days in past 30 days? (scale 1-30)", min_value=1, max_value=30, key=16)
+physicalHealth = streamlit.number_input(label="Physical illness or injury days in past 30 days? (0=no, if yes scale 1-30)", min_value=0, max_value=30, key=16)
 ## Physical Health Scale
 
 streamlit.write("==================")
