@@ -36,7 +36,7 @@ df.dropna(inplace=True)
 df.isnull().sum()
 feature_cols = ['Diabetes_binary', 'HighBP', 'HighChol', 'CholCheck', 'BMI', 'Smoker',
                 'Stroke', 'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies',
-                'HvyAlcoholConsump', 'AnyHealthCare', 'NoDocbcCost', 'GenHlth', 'MentHlth',
+                'HvyAlcoholConsump', 'AnyHealthcare', 'NoDocbcCost', 'GenHlth', 'MentHlth',
                 'PhysHlth', 'DiffWalk', 'Sex', 'Age', 'Education', 'Income']
 df = df[feature_cols]
 streamlit.write(feature_cols)
