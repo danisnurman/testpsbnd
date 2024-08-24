@@ -318,7 +318,7 @@ streamlit.write("==================")
 dataFromUser = [[bloodPressure, cholCat, cholCheck, bmi, smoker,
                  stroke, heartDisease, physicalActivity, fruits, veggies,
                  heavyAlcohol, anyHealthCare, noDocBcsCost, generalHealth, mentalHealth,
-                 physicalHealth, difficultyWalk, sex, age, education, income]]
+                 physicalHealth, difficultyWalk, sex, ageCat, education, income]]
 
 streamlit.write(dataFromUser)
 
