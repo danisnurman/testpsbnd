@@ -52,9 +52,9 @@ clf = clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 
 dfConcat = X_test.copy()
-dfConcat['ytest'] = y_test
+dfConcat['y_testdata'] = y_test
 dfConcat.reset_index(inplace=True)
-dfConcat['ypred'] = y_pred
+dfConcat['y_predict'] = y_pred
 streamlit.write(dfConcat)
 
 # Classifier entropy criterion
