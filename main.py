@@ -46,12 +46,16 @@ X = df.drop(columns='Diabetes_binary')
 y = df.Diabetes_binary
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-streamlit.write(X_test)
-
 ## Classifier
 clf = DecisionTreeClassifier()
 clf = clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
+
+dfConcat = X_test.copy()
+dfConcat['ytest'] = y_test
+dfConcat.reset_index(inplace=True)
+dfConcat['ypred'] = y_pred
+streamlit.write(dfConcat)
 
 # Classifier entropy criterion
 # clf = DecisionTreeClassifier(criterion="entropy", splitter="best")
