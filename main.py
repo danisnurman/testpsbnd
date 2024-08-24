@@ -34,7 +34,10 @@ df = pandas.read_csv('https://raw.githubusercontent.com/danisnurman/psbnd2/main/
 # streamlit.dataframe(df, use_container_width=True)
 df.dropna(inplace=True)
 df.isnull().sum()
-feature_cols = ['Diabetes_binary', 'HighBP', 'HighChol', 'BMI', 'Smoker', 'PhysActivity']
+feature_cols = ['Diabetes_binary', 'HighBP', 'HighChol', 'CholCheck', 'BMI', 'Smoker',
+                'Stroke', 'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies',
+                'HvyAlcoholConsump', 'AnyHealthCare', 'NoDocbcCost', 'GenHlth', 'MentHlth'
+                'PhysHlth', 'DiffWalk', 'Sex', 'Age', 'Education', 'Income']
 df = df[feature_cols]
 streamlit.write(feature_cols)
 
@@ -312,10 +315,10 @@ streamlit.write("==================")
 ### End of GET VARIABLE INPUT FROM USER
 
 ## Print POST Variable
-dataFromUser = [[bloodPressure, cholStatus, cholCheck, bmiStatus, smoker,
+dataFromUser = [[bloodPressure, cholesterol, cholCheck, bmi, smoker,
                  stroke, heartDisease, physicalActivity, fruits, veggies,
                  heavyAlcohol, anyHealthCare, noDocBcsCost, generalHealth, mentalHealth,
-                 physicalHealth, difficultyWalk, sex, ageCat, education, income]]
+                 physicalHealth, difficultyWalk, sex, age, education, income]]
 
 streamlit.write(dataFromUser)
 
