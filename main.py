@@ -38,7 +38,7 @@ df.isnull().sum()
 #                 'Stroke', 'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies',
 #                 'HvyAlcoholConsump', 'AnyHealthcare', 'NoDocbcCost', 'GenHlth', 'MentHlth',
 #                 'PhysHlth', 'DiffWalk', 'Sex', 'Age', 'Education', 'Income']
-mrmr_features = ['GenHlth', 'Age', 'BMI', 'HighBP', 'HighChol', 'DiffWalk']
+mrmr_features = ['Diabetes_binary', 'GenHlth', 'Age', 'BMI', 'HighBP', 'HighChol', 'DiffWalk']
 df = df[mrmr_features]
 streamlit.write(mrmr_features)
 
