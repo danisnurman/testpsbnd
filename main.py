@@ -326,8 +326,7 @@ streamlit.write("==================")
 #                  stroke, heartDisease, physicalActivity, fruits, veggies,
 #                  heavyAlcohol, anyHealthCare, noDocBcsCost, generalHealth, mentalHealth,
 #                  physicalHealth, difficultyWalk, sex, ageCat, education, income]]
-dataFromUser = [bloodPressure, cholCat, bmi, generalHealth, difficultyWalk, ageCat]
-
+dataFromUser = [generalHealth, ageCat, bmi, bloodPressure, cholCat, difficultyWalk]
 streamlit.write(dataFromUser)
 
 ## Predict New Data
