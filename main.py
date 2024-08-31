@@ -23,13 +23,14 @@ streamlit.title('Diabetes Health Indicators')
 streamlit.write("Hi! Please fill the form below.")
 ##
 
-### BUILD MODEL WITH "ALL (21)" INDEPENDENT VARIABLE
+### BUILD MODEL WITH "SIX (6)" INDEPENDENT VARIABLE
 ## Read CSV & Define Feature
 df = pandas.read_csv('https://raw.githubusercontent.com/danisnurman/psbnd2/main/diabetes_binary_5050split_health_indicators_BRFSS2015.csv')
 # streamlit.dataframe(df, use_container_width=True)
 df.dropna(inplace=True)
 df.isnull().sum()
-## Data Transformation
+
+## Data Discretization & Transformation
 df.loc[df['BMI'] < 18.5, 'BMI'] = 1
 df.loc[(df['BMI'] >=18.5) & (df['BMI'] <= 24.9), 'BMI'] = 2
 df.loc[(df['BMI'] >=25.0) & (df['BMI'] <= 29.9), 'BMI'] = 3
@@ -327,7 +328,7 @@ streamlit.write("==================")
 #                  stroke, heartDisease, physicalActivity, fruits, veggies,
 #                  heavyAlcohol, anyHealthCare, noDocBcsCost, generalHealth, mentalHealth,
 #                  physicalHealth, difficultyWalk, sex, ageCat, education, income]]
-dataFromUser = [[generalHealth, ageCat, bmi, bloodPressure, cholCat, difficultyWalk]]
+dataFromUser = [[generalHealth, ageCat, bmiCat, bloodPressure, cholCat, difficultyWalk]]
 streamlit.write(dataFromUser)
 
 ## Predict New Data
