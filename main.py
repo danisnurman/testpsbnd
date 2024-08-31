@@ -8,11 +8,6 @@ import numpy
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 # from sklearn import metrics
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report
 
 ###
@@ -34,6 +29,12 @@ df = pandas.read_csv('https://raw.githubusercontent.com/danisnurman/psbnd2/main/
 # streamlit.dataframe(df, use_container_width=True)
 df.dropna(inplace=True)
 df.isnull().sum()
+## Data Transformation
+df.loc[df['BMI'] < 18.5, 'BMI'] = 1
+df.loc[(df['BMI'] >=18.5) & (df['BMI'] <= 24.9), 'BMI'] = 2
+df.loc[(df['BMI'] >=25.0) & (df['BMI'] <= 29.9), 'BMI'] = 3
+df.loc[(df['BMI'] >=30.0) & (df['BMI'] <= 34.9), 'BMI'] = 4
+df.loc[(df['BMI'] >=35.0) & (df['BMI'] <= 100.0), 'BMI'] = 5
 # feature_cols = ['Diabetes_binary', 'HighBP', 'HighChol', 'CholCheck', 'BMI', 'Smoker',
 #                 'Stroke', 'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies',
 #                 'HvyAlcoholConsump', 'AnyHealthcare', 'NoDocbcCost', 'GenHlth', 'MentHlth',
