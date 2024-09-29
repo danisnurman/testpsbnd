@@ -29,7 +29,7 @@ df = pandas.read_csv('https://raw.githubusercontent.com/danisnurman/psbnd2/main/
 # streamlit.dataframe(df, use_container_width=True)
 df.dropna(inplace=True)
 df.isnull().sum()
-
+#
 ## Data Discretization & Transformation
 df.loc[df['BMI'] < 18.5, 'BMI'] = 1
 df.loc[(df['BMI'] >=18.5) & (df['BMI'] <= 24.9), 'BMI'] = 2
