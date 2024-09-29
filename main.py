@@ -29,7 +29,6 @@ df = pandas.read_csv('https://raw.githubusercontent.com/danisnurman/psbnd2/main/
 # streamlit.dataframe(df, use_container_width=True)
 df.dropna(inplace=True)
 df.isnull().sum()
-streamlit.write(df)
 
 ## Data Discretization & Transformation
 df.loc[df['BMI'] < 18.5, 'BMI'] = 1
